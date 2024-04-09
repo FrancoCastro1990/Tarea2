@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -112,7 +111,7 @@ public class Main {
             } else if (opcion==2){
                 System.out.println("Tenemos las siguientes promociones:");
                 System.out.println("Promocion estudiante: Si eres estudiante tienes un 10% de descuento!");
-                System.out.println("Promocion 3ra edad: Si tienes mas de 65 a;os tienes un 15% de descuento!");
+                System.out.println("Promocion 3ra edad: Si tienes mas de 60 años tienes un 15% de descuento!");
                 System.out.println("Promocion numero de entradas: Si compras mas de 3 entradas, tienes un descuento extra del 5% en tu total!");
             }
 
