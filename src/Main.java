@@ -1,15 +1,17 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    static int VALOR_VIP = 25000;
+    static int VALOR_PLATEA_BAJA = 19000;
+    static int VALOR_PLATEA_ALTA = 11000;
+    static int VALOR_PALCO = 7200;
+    static double DESC_ESTUDIANTE = 0.10;
+    static double DESC_3RA_EDAD = 0.15;
+    static int EDAD_MINIMA_3RA_EDAD = 60;
     public static void main(String[] args) {
-        final int VALOR_VIP = 25000;
-        final int VALOR_PLATEA_BAJA = 19000;
-        final int VALOR_PLATEA_ALTA = 11000;
-        final int VALOR_PALCO = 7200;
-        final double DESC_ESTUDIANTE = 0.10;
-        final double DESC_3RA_EDAD = 0.15;
-        final int EDAD_MINIMA_3RA_EDAD = 60;
+
 
         int opcion = 0;
         int ubicacion = 0;
@@ -30,14 +32,16 @@ public class Main {
             System.out.println("----------");
             if(!entradas.isEmpty()) {
                 System.out.println("[1] Agregar otra entrada");
-                System.out.println("[2] Salir y ver total");
+                System.out.println("[2] Ver promociones disponibles");
+                System.out.println("[3] Salir y ver total");
             } else {
                 System.out.println("[1] Agregar una entrada");
-                System.out.println("[2] Salir");
+                System.out.println("[2] Ver promociones disponibles");
+                System.out.println("[3] Salir");
             }
 
             opcion = scanner.nextInt();
-            if(opcion<1 || opcion>2){
+            if(opcion<1 || opcion>3){
                 System.out.println("Ingrese una opcion valida");
             } else if (opcion == 1) {
 
@@ -105,16 +109,28 @@ public class Main {
                         entradas.add(VALOR_PALCO-(VALOR_PALCO*descuento));
                         break;
                 }
+            } else if (opcion==2){
+                System.out.println("Tenemos las siguientes promociones:");
+                System.out.println("Promocion estudiante: Si eres estudiante tienes un 10% de descuento!");
+                System.out.println("Promocion 3ra edad: Si tienes mas de 65 a;os tienes un 15% de descuento!");
+                System.out.println("Promocion numero de entradas: Si compras mas de 3 entradas, tienes un descuento extra del 5% en tu total!");
             }
 
-        }while(opcion!=2);
+        }while(opcion!=3);
 
         //mostrar todos los valores
         for (int i = 0; i < entradas.size(); i++) {
             System.out.println("Entrada numero "+(i+1)+" = $"+entradas.get(i));
             total = total+entradas.get(i);
         }
-        System.out.println("El total a pagar es: $"+total);
+        if(entradas.size()>3){
+            System.out.println("Tienes un 5% de descuento en tu total");
+            total=total-(total*0.05);
+            System.out.println("El total a pagar es: $"+total);
+        } else {
+            System.out.println("El total a pagar es: $"+total);
+
+        }
         System.out.println("....");
     }
 }
