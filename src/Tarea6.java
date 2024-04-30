@@ -64,11 +64,7 @@ public class Tarea6 {
     static double DESC_ESTUDIANTE = 0.10;
     static double DESC_3RA_EDAD = 0.15;
 
-    static void funcionPrueba(){
-        System.out.println("entre");
-    }
     public static void main(String[] args) {
-        funcionPrueba();
 
         ArrayList<EntradasTipo> entradasDisponibles=new ArrayList<>();
         entradasDisponibles.add(new EntradasTipo("VIP", VALOR_VIP,3));
