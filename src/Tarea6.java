@@ -60,7 +60,6 @@ public class Tarea6 {
     static int VALOR_PLATEA_BAJA = 15000;
     static int VALOR_PLATEA_ALTA = 10000;
     static int VALOR_PALCO = 5000;
-
     static double DESC_ESTUDIANTE = 0.10;
     static double DESC_3RA_EDAD = 0.15;
 
@@ -294,6 +293,8 @@ public class Tarea6 {
 
         System.out.println("Muchas gracias "+nombre+" por ocupar el sistema de gestion de entradas.");
         System.out.println("---------------------");
+        System.out.println("---------------------");
+
     }
 
 }
