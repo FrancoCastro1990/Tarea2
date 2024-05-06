@@ -75,15 +75,15 @@ public class Tarea6 {
 
         Scanner scanner = new Scanner(System.in);
 
-        int opcion;
-        int ubicacion;
-        int cantidad;
+        int opcion=0;
+        int ubicacion=0;
+        int cantidad=0;
         int descuento = 0;
         String nombre;
         System.out.println("---------------------");
         System.out.print("Ingrese su nombre porfavor: ");
         nombre = scanner.nextLine();
-        System.out.println("Bienvenido "+nombre+" al sistema de gestion de entradas del teatro Moro");
+        System.out.println("Bienvenido "+nombre+" al sistema de gestion de entradas general");
         System.out.println("Seleccione alguna opcion disponible ingresando el numero correspondiente en todo el flujo");
 
         //FLUJO PRINCIPAL
@@ -95,9 +95,15 @@ public class Tarea6 {
             System.out.println("[4] Ver cantidad de entradas disponibles por tipo");
             System.out.println("[5] Imprimir boleta y salir");
 
-            opcion = scanner.nextInt();
+            try{
+                opcion = scanner.nextInt();
+            }catch (Exception e) {
+                scanner.nextLine();
+                System.out.println("Ingrese un numero.");
+            }
+
             if(opcion<1 || opcion>5){
-                System.out.println("Ingrese una opcion valida");
+                System.out.println("Ingrese una opcion valida.");
             } else if (opcion == 1) {
                 //logica de agregar entrada
 
@@ -106,7 +112,14 @@ public class Tarea6 {
                     System.out.println("---------------------");
                     System.out.println("Ingrese la ubicacion");
                     System.out.print("[1] VIP, [2] Platea baja, [3] Platea alta, [4] palcos:");
-                    ubicacion= scanner.nextInt();
+
+                    try{
+                        ubicacion= scanner.nextInt();
+                    } catch (Exception error) {
+                        scanner.nextLine();
+                        System.out.println("Ingrese un numero.");
+                    }
+
                     if(ubicacion<1 || ubicacion>4){
                         System.out.println("Ingrese una opcion valida");
                     }
@@ -116,11 +129,16 @@ public class Tarea6 {
                 do{
                     System.out.println("Ingrese el descuento a aplicar");
                     System.out.print("[1] Estudiante, [2] Tercera edad, [3] Sin descuento");
-                    descuento = scanner.nextInt();
+                    try{
+                        descuento = scanner.nextInt();
+                    } catch (Exception error) {
+                        scanner.nextLine();
+                        System.out.println("Ingrese un numero.");
+                    }
                     if(descuento<1 || descuento>3) {
                         System.out.println("Ingrese una opcion valida");
                     }
-                }while(descuento<1 || descuento>3);
+                } while (descuento<1 || descuento>3);
 
                 double descuentoSelecionado=0;
                 if(descuento == 1) {
@@ -139,7 +157,16 @@ public class Tarea6 {
                     do {
                         System.out.println("---------------------");
                         System.out.print("Ingrese la cantidad de entradas a comprar:");
-                        cantidad= scanner.nextInt();
+
+                        try{
+                            cantidad = scanner.nextInt();
+                        } catch (Exception error) {
+                            scanner.nextLine();
+                            System.out.println("Ingrese un numero.");
+                        }
+
+
+
                         if(cantidad<1){
                             System.out.println("Ingrese un numero mayor a 0");
                         }
@@ -182,7 +209,14 @@ public class Tarea6 {
 
                         }
                     }
-                    entradaAEliminar= scanner.nextInt();
+
+                    try{
+                        entradaAEliminar = scanner.nextInt();
+                    } catch (Exception error) {
+                        scanner.nextLine();
+                        System.out.println("Ingrese un numero.");
+                    }
+
                     if(entradaAEliminar<1 || entradaAEliminar>entradasCliente.size()){
                         System.out.println("Ingrese un ID valido");
                     } else {
@@ -226,7 +260,14 @@ public class Tarea6 {
                             System.out.println( ". DESCUENTO 3RA EDAD, valor con descuento =$"+(entradasCliente.get(i).getValor()-(entradasCliente.get(i).getValor()*entradasCliente.get(i).getDescuento())));
                         }
                     }
-                    entradaAEditar= scanner.nextInt();
+
+                    try{
+                        entradaAEditar= scanner.nextInt();
+                    } catch (Exception error) {
+                        scanner.nextLine();
+                        System.out.println("Ingrese un numero.");
+                    }
+
                     if(entradaAEditar<1 || entradaAEditar>entradasCliente.size()){
                         System.out.println("Ingrese un ID valido");
                     } else {
@@ -234,7 +275,13 @@ public class Tarea6 {
                         do{
                             System.out.println("Ingrese el descuento a aplicar");
                             System.out.print("[1] Estudiante, [2] Tercera edad, [3] Sin descuento");
-                            descuento = scanner.nextInt();
+                            try{
+                                descuento = scanner.nextInt();
+                            }catch (Error e) {
+                                System.out.println("Ingrese una opcion valida");
+
+                            }
+
                             if(descuento<1 || descuento>3) {
                                 System.out.println("Ingrese una opcion valida");
                             }
